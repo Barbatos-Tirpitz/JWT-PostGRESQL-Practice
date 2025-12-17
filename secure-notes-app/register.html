@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+  <h2>Register</h2>
+
+  <form id="registerForm">
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit">Register</button>
+  </form>
+
+  <!-- Button to go to login page -->
+  <p>Already have an account? <button id="goToLogin">Login</button></p>
+
+  <script>
+    document.getElementById('goToLogin').addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+
+    const form = document.getElementById('registerForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const res = await fetch('http://localhost:5000/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (data.user) {
+          alert('Registration successful! You can now login.');
+          window.location.href = 'login.html';
+        } else {
+          alert(data.error || 'Registration failed');
+        }
+      } catch (err) {
+        alert('Error connecting to server');
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

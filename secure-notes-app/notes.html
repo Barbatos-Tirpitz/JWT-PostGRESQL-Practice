@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes</title>
+</head>
+<body>
+  <h2>Your Notes</h2>
+  <ul id="notesList"></ul>
+
+  <script>
+    async function fetchNotes() {
+      const token = localStorage.getItem('token');
+      const res = await fetch('http://localhost:5000/notes', {
+        headers: { 'Authorization': 'Bearer ' + token }
+      });
+      const notes = await res.json();
+      const list = document.getElementById('notesList');
+      notes.forEach(note => {
+        const li = document.createElement('li');
+        li.textContent = note.title + ': ' + note.content_encrypted;
+        list.appendChild(li);
+      });
+    }
+
+    fetchNotes();
+  </script>
+</body>
+</html>

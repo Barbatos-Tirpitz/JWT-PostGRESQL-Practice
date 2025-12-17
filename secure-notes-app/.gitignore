@@ -1,0 +1,6 @@
+# Ignore node modules
+node_modules/
+# Any secret keys or backups
+*.key
+*.pem
+*.env
