@@ -23,7 +23,6 @@ Tech Stack
 | JWT               | Authentication        |
 | AES-256-CBC       | Notes encryption      |
 | bcrypt            | Password hashing      |
-| Joi               | Input validation      |
 | dotenv            | Environment variables |
 
 
