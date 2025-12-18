@@ -5,9 +5,13 @@ A secure notes application built with Node.js, Express, and PostgreSQL, using JW
 🚀 Features
 
 🔐 User authentication with JWT
+
 🛡️ Passwords hashed using bcrypt
+
 🗝️ Notes encrypted before storing in the database
+
 ✏️ CRUD operations: Create, Read, Update, Delete notes
+
 💻 Secure backend with parameterized queries to prevent SQL injection
 
 Tech Stack
