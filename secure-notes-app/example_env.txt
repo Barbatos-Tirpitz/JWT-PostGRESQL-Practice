@@ -7,3 +7,4 @@ JWT_SECRET=your_jwt_secret
 ENCRYPTION_KEY=your_encryption_key
 
 - remove this line, then change the txt -> .env -
+-dont forget to change "your" into your actual credentials -
